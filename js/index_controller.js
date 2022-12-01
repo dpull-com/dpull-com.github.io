@@ -1,3 +1,6 @@
+
+let locationHashNav = new Array()
+
 function fillSidebarList1(html) {
     let data = {
         "Develop": [
@@ -48,7 +51,10 @@ function fillSidebarList1(html) {
         for (var i in value) {
             let item = value[i]
             let tip = item.tip ?? item.text
-            html.push(`<li><a href="#" onclick="containerNavTo('${item.url}')" title="${tip}" class="rounded">${item.text}</a></li>`)
+
+            let locationHash = `#${item.text}`.replaceAll(" ", "-")
+            locationHashNav[locationHash] = item.url
+            html.push(`<li><a href="${locationHash}" title="${tip}" class="rounded">${item.text}</a></li>`)
         }
         html.push(end)
     }
@@ -108,9 +114,12 @@ function fillSidebarList() {
     sidebarList.innerHTML = html.join('');
 }
 
-function containerNavTo(url) {
+function containerNavTo() {
     let containerIFrame = document.getElementById("containerIFrame");
-    containerIFrame.src = url
+    let locationHash = window.location.hash;
+    containerIFrame.src = locationHashNav[locationHash]
 }
 
+window.addEventListener("hashchange", containerNavTo, false);
 fillSidebarList()
+containerNavTo()
