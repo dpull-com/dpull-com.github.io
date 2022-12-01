@@ -4,6 +4,7 @@ let locationHashNav = new Array()
 function fillSidebarList1(html) {
     let data = {
         "Develop": [
+            { "text": "Search", "url": "search.html" },
             { "text": "C Language", "tip": "C语言", "url": "https://en.cppreference.com/w/c" },
             { "text": "Cpp Insights", "url": "https://cppinsights.io/" },
             { "text": "Lua Demo", "url": "https://www.lua.org/demo.html" },
@@ -117,11 +118,8 @@ function fillSidebarList() {
 function containerNavTo() {
     let containerIFrame = document.getElementById("containerIFrame");
     let locationHash = window.location.hash;
-    let url = locationHashNav[locationHash];
-    if (url)
-    {
-        containerIFrame.src = url;
-    }
+    let url = locationHashNav[locationHash] ?? locationHashNav["#Search"];
+    containerIFrame.src = url;
 }
 
 window.addEventListener("hashchange", containerNavTo, false);

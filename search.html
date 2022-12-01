@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DPULL</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+        .form-control-borderless {
+            border: none;
+        }
+
+        .form-control-borderless:hover,
+        .form-control-borderless:active,
+        .form-control-borderless:focus {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="https://cse.google.com/cse?cx=c3f02040f58914941#gsc.tab=0&gsc.q=print"> asasasasas</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <form class="card card-sm">
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <!--end of col-->
+                        <div class="col">
+                            <input id="inputKeywords" class="form-control form-control-lg form-control-borderless" type="search"
+                                placeholder="Keywords">
+                        </div>
+                        <!--end of col-->
+                        <div class="col-auto">
+                            <button class="btn btn-lg btn-success" type="button" onclick="DoSearch()">Search</button>
+                        </div>
+                        <!--end of col-->
+                    </div>
+                </form>
+            </div>
+            <!--end of col-->
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom scripts -->
+    <script>
+       function DoSearch()
+       {
+            let keywords = document.getElementById("inputKeywords").value;
+            if (keywords)
+            {
+                let url = `https://cse.google.com/cse?cx=c3f02040f58914941#gsc.tab=0&gsc.q=${keywords}`
+                window.location.href = url;
+            }
+       }
+    </script>
+</body>
+
+</html>
