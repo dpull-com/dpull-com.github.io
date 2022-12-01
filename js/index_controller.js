@@ -124,4 +124,4 @@ function containerNavTo() {
 
 window.addEventListener("hashchange", containerNavTo, false);
 fillSidebarList()
-containerNavTo()
+setTimeout(containerNavTo, 10)
