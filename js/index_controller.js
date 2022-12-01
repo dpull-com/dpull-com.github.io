@@ -117,7 +117,11 @@ function fillSidebarList() {
 function containerNavTo() {
     let containerIFrame = document.getElementById("containerIFrame");
     let locationHash = window.location.hash;
-    containerIFrame.src = locationHashNav[locationHash]
+    let url = locationHashNav[locationHash];
+    if (url)
+    {
+        containerIFrame.src = url;
+    }
 }
 
 window.addEventListener("hashchange", containerNavTo, false);
