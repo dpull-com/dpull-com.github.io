@@ -23,7 +23,8 @@ function fillSidebarList1(html) {
         ],
         "Tools": [
             { "text": "Markdown tables generator", "tip": "Markdown table编辑器", "url": "https://www.tablesgenerator.com/markdown_tables" },
-            { "text": "Json Viewer", "tip": "Markdown table编辑器", "url": "http://jsonviewer.stack.hu/" },
+            { "text": "Json Editor", "url": "https://jsoneditoronline.org/" },
+            { "text": "Explain Shell", "url": "https://explainshell.com/" },
         ]
     };
 
@@ -53,7 +54,7 @@ function fillSidebarList1(html) {
             let item = value[i]
             let tip = item.tip ?? item.text
 
-            let locationHash = `#${item.text}`.replaceAll(" ", "-")
+            let locationHash = encodeURI(`#${item.text}`)
             locationHashNav[locationHash] = item.url
             html.push(`<li><a href="${locationHash}" title="${tip}" class="rounded">${item.text}</a></li>`)
         }
@@ -68,7 +69,7 @@ function fillSidebarList2(html) {
         "Link":
             [
                 { "text": "Blog", "url": "https://blog.dpull.com" },
-                { "text": "Github", "url": "https://github.com/dpull" },
+                { "text": "Google Translate", "url": "https://translate.google.com/" },
             ]
     };
 
