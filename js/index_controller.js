@@ -1,5 +1,6 @@
 
-let locationHashNav = new Array()
+let locationHashNav = new Array();
+let defaultLocationHash;
 
 function fillSidebarList1(html) {
     let data = {
@@ -19,7 +20,8 @@ function fillSidebarList1(html) {
         ],
         "GameDevelop": [
             { "text": "PathFinding", "tip": "2D寻路算法", "url": "https://qiao.github.io/PathFinding.js/visual/" },
-            { "text": "Gobang / AI五子棋", "url": "http://gobang.light7.cn" }
+            { "text": "Gobang / AI五子棋", "url": "http://gobang.light7.cn" },
+            { "text": "The use less web", "index": true, "url": "https://theuselessweb.com/" },
         ],
         "Tools": [
             { "text": "base64 encode and decode", "url": "https://www.utilities-online.info/base64" },
@@ -58,6 +60,9 @@ function fillSidebarList1(html) {
 
             let locationHash = encodeURI(`#${item.text}`)
             locationHashNav[locationHash] = item.url
+            if (item.index) {
+                defaultLocationHash = locationHash
+            } 
             html.push(`<li><a href="${locationHash}" title="${tip}" class="rounded">${item.text}</a></li>`)
         }
         html.push(end)
@@ -121,7 +126,7 @@ function fillSidebarList() {
 function containerNavTo() {
     let containerIFrame = document.getElementById("containerIFrame");
     let locationHash = window.location.hash;
-    let url = locationHashNav[locationHash] ?? locationHashNav["#Search"];
+    let url = locationHashNav[locationHash] ?? locationHashNav[defaultLocationHash];
     containerIFrame.src = url;
 }
 
