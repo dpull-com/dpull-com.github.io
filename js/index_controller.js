@@ -6,7 +6,7 @@ function fillSidebarList1(html) {
     let data = {
         "Develop": [
             { "text": "Search", "url": "search.html" },
-            { "text": "C Language", "tip": "C语言", "url": "https://en.cppreference.com/w/c" },
+            { "text": "C Language", "index": true, "tip": "C语言", "url": "https://en.cppreference.com/w/c" },
             { "text": "Cpp Insights", "url": "https://cppinsights.io" },
             { "text": "Lua Demo", "url": "https://www.lua.org/demo.html" },
             { "text": "Regex Diagrams", "tip": "图形化正则表达式", "url": "https://regexper.com" },
@@ -21,10 +21,10 @@ function fillSidebarList1(html) {
         "GameDevelop": [
             { "text": "PathFinding", "tip": "2D寻路算法", "url": "https://qiao.github.io/PathFinding.js/visual/" },
             { "text": "Gobang / AI五子棋", "url": "http://gobang.light7.cn" },
-            { "text": "The use less web", "index": true, "url": "https://theuselessweb.com/" },
         ],
         "Tools": [
-            { "text": "base64 encode and decode", "url": "https://www.utilities-online.info/base64" },
+            { "text": "Integer Sequences", "url": "https://oeis.org" },
+            { "text": "encode and decode", "url": "https://emn178.github.io/online-tools/base64_decode.html" },
             { "text": "Markdown tables generator", "tip": "Markdown table编辑器", "url": "https://www.tablesgenerator.com/markdown_tables" },
             { "text": "Json Editor", "url": "https://jsoneditoronline.org" },
             { "text": "Explain Shell", "url": "https://explainshell.com" },
