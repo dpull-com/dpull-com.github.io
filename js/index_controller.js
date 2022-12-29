@@ -6,9 +6,9 @@ function fillSidebarList1(html) {
     let data = {
         "Develop": [
             { "text": "Search", "url": "search.html" },
-            { "text": "C Language", "index": true, "tip": "C语言", "url": "https://en.cppreference.com/w/c" },
+            { "text": "C Language", "tip": "C语言", "url": "https://en.cppreference.com/w/c" },
             { "text": "Cpp Insights", "url": "https://cppinsights.io" },
-            { "text": "Lua Demo", "url": "https://www.lua.org/demo.html" },
+            { "text": "Lua Demo", "index": true, "url": "https://www.lua.org/demo.html" },
             { "text": "Regex Diagrams", "tip": "图形化正则表达式", "url": "https://regexper.com" },
             { "text": "Regex Test", "tip": "图形化正则表达式", "url": "https://myregextester.com" },
             { "text": "IEEE-754", "url": "https://babbage.cs.qc.cuny.edu/IEEE-754/" },
