@@ -12,9 +12,7 @@ const DEFAULTS = {
         tradingFeeRate: 0.0000565,// 交易费(交易所) 0.00565%
         sfcLevyRate: 0.000027,    // 证监会交易征费 0.0027%
         afrcLevyRate: 0.0000015,  // 会财局交易征费 0.00015%
-        ccassRate: 0.00002,       // 交收费(CCASS) 0.002%
-        ccassMin: 2,              // 交收费最低 HK$
-        ccassMax: 100             // 交收费最高 HK$
+        ccassRate: 0.000042       // 交收费(CCASS) 0.0042%（2025-06-30 起，取消最低/最高收费限额）
     },
     us: {
         symbol: "US$",
@@ -38,9 +36,7 @@ const FIELD_META = {
         { key: "tradingFeeRate", label: "交易费费率 (%)", percent: true },
         { key: "sfcLevyRate", label: "证监会交易征费费率 (%)", percent: true },
         { key: "afrcLevyRate", label: "会财局交易征费费率 (%)", percent: true },
-        { key: "ccassRate", label: "交收费费率 (%)", percent: true },
-        { key: "ccassMin", label: "交收费最低 (HK$)", step: 0.01 },
-        { key: "ccassMax", label: "交收费最高 (HK$)", step: 0.01 }
+        { key: "ccassRate", label: "交收费费率 (%)", percent: true }
     ],
     us: [
         { key: "platformPerShare", label: "平台使用费 (US$/股)", step: 0.0001 },
@@ -55,7 +51,7 @@ const FIELD_META = {
     ]
 };
 
-const STORAGE_KEY = "dpull_fee_calc_rates";
+const STORAGE_KEY = "dpull_fee_calc_rates_v2";
 
 let state = {
     market: "hk",
@@ -107,10 +103,8 @@ function calcHK(turnover, qty, side, r) {
         collect.push({ name: "交易费", amount: Math.max(turnover * r.tradingFeeRate, 0.01) });
         collect.push({ name: "证监会交易征费", amount: turnover * r.sfcLevyRate });
         collect.push({ name: "会财局交易征费", amount: turnover * r.afrcLevyRate });
-        // 交收费：最低 ccassMin，最高 ccassMax
-        let ccass = turnover * r.ccassRate;
-        ccass = Math.min(Math.max(ccass, r.ccassMin), r.ccassMax);
-        collect.push({ name: "交收费 (CCASS)", amount: ccass });
+        // 交收费(CCASS)：2025-06-30 起按成交额 0.0042% 计，已取消最低/最高收费限额
+        collect.push({ name: "交收费 (CCASS)", amount: turnover * r.ccassRate });
     }
     return { platform, collect };
 }
