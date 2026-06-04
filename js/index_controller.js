@@ -22,6 +22,9 @@ function fillSidebarList1(html) {
             { "text": "PathFinding", "tip": "2D寻路算法", "url": "https://qiao.github.io/PathFinding.js/visual/" },
             { "text": "Gobang / AI五子棋", "url": "http://gobang.light7.cn" },
         ],
+        "Finance / 理财": [
+            { "text": "Stock Fee Calculator", "tip": "港股/美股手续费计算器(免佣金)", "url": "stock_fee_calculator.html" },
+        ],
         "Tools": [
             { "text": "Integer Sequences", "url": "https://oeis.org" },
             { "text": "encode and decode", "url": "https://emn178.github.io/online-tools/base64_decode.html" },
